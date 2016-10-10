@@ -1,3 +1,5 @@
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,9 +8,10 @@ import java.sql.SQLException;
 import dao.DBConnection;
 
 
+
 public class Esempio_2_PreparedStatement {
 
-	public static void main(String[] args) throws ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException{
 		try{
 			//passo 1 load the driver class 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
