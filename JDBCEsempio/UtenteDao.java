@@ -13,15 +13,15 @@ public class UtenteDao {
 	//il DAO non ha attributi ma ha SOLO metodi
 
 
-	public Utente leggiUtenteConId(int id) throws SQLException, IOException, PropertyVetoException{
+	public Utente leggiUtenteConId(int id){
 		Utente u=null;
-		Connection con=DataSource.getInstance().getConnection();
-
+		
+		Connection con;
 		String sql="select * from UTENTE where ID_UTENTE=?";
-
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		try{
+			con=DataSource.getInstance().getConnection();
 			pst=con.prepareStatement(sql);
 
 			pst.setInt(1, id);
@@ -41,7 +41,7 @@ public class UtenteDao {
 		}finally {
 			if (rs != null) try { rs.close(); } catch (SQLException e) {e.printStackTrace();}
 			if (pst != null) try { pst.close(); } catch (SQLException e) {e.printStackTrace();}
-			if (con!= null) try { con.close(); } catch (SQLException e) {e.printStackTrace();}
+			
 		}
 
 		return u;
